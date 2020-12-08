@@ -1,7 +1,7 @@
 package com.example.appimcbd;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lista = (ListView) findViewById(R.id.lista);
-        setTitle("Banco de Dados com SQLite!");
+        setTitle("IMC com Banco de Dados");
         dao = new Imc_DAO(this);
         dao.open();
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         int i = 0;
         Iterator<Imc> iterator = listaImcs.iterator();
         while (iterator.hasNext()) {
-            Imc aux = new Imc();
+            Imc aux;
             aux = (Imc) iterator.next();
             imcs[i] = aux.textoLista();
             idImcs[i] = aux.getId();
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void incluirImc(View v) {
-        intent = new Intent(getApplicationContext(), TratarImc.class);
+        Intent intent = new Intent(getApplicationContext(), TratarImc.class);
         intent.putExtra("acao", -1);
         intent.putExtra("id", 0L);
         startActivity(intent);
@@ -77,6 +77,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void sair(View v) {
         finish();
-
     }
 }

@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class Imc_DAO {
     // banco
     private SQLiteDatabase database;
+
     // colunas da tabela
     private String[] columns = {ImcSQLiteOpenHelper.COLUNA_ID,
             ImcSQLiteOpenHelper.COLUNA_NOME,
